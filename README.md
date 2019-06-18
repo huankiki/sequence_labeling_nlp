@@ -1,5 +1,5 @@
 # sequence_labeling_nlp
-基于统计方法（CRF/HMM）和神经网络方法序列标注
+基于统计方法（CRF/HMM）和神经网络方法的序列标注
 
 ## BiLSTM-CRF
 ![](./paper/BiLSTM_CRF.png)
