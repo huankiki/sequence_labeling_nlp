@@ -32,9 +32,9 @@
 - **转移概率矩阵**A，在开头和结尾分别添加start和end标签。转移概率矩阵是CRF的一个参数，在训练模型之前，可以随机初始化，并随着训练的迭代过程被更新，即CRF可以学习到这些约束条件
 - **损失函数，即CRF计算的条件概率**，即所有可能的标签路径中，真实标签路径的softmax概率值
 
-###### 1，如何定义一条标签路径的分值？
-###### 2，如何计算所有标签路径的分值之和？
-###### 3，模型训练好之后，如何预测？
+##### 1，如何定义一条标签路径的分值？
+##### 2，如何计算所有标签路径的分值之和？
+##### 3，模型训练好之后，如何预测？
 
 #### Q: 通过PyTorch官网代码教程理解模型
 官方教程： [PyTorch-tutorial-BiLSTM-CRF](https://pytorch.org/tutorials/beginner/nlp/advanced_tutorial.html#sphx-glr-beginner-nlp-advanced-tutorial-py)  
