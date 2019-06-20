@@ -57,4 +57,16 @@
 
 
 ## BiLSTM-CRF with PyTorch
+代码参考：[Github-luopeixiang/named_entity_recognition](https://github.com/luopeixiang/named_entity_recognition)
+
 ### data
+中文、英文两个数据集
+- 中文数据集，参考：[LatticeLSTM/data](https://github.com/jiesutd/LatticeLSTM/tree/master/data)
+- 英文数据集，参考：[conll2003/ner/eng](https://www.clips.uantwerpen.be/conll2003/ner/)
+
+### code
+代码：[ner_pytorch](./ner_pytorch)
+文件框架和说明：
+
+### result
+
