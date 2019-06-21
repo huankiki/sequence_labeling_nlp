@@ -131,8 +131,11 @@ O		O
 ```
 
 ### [To-Do-20190621]
+1，优化 ner_pytorch/
 - 确认代码，尤其是CRF模块
 - 修改config.py配置文件
 - 确认数据
 - 训练、评估
-- 加入词向量（★★★）
+- 加入词向量（★★★）  
+2，Baseline：tutorial_pytorch_bilstm_crf/，当前数据集在baseline上的训练和评估测试
+
