@@ -98,8 +98,9 @@ O		O
 > 避免踩坑02： 计算Precision时，可能遇到分母为零的情况，需要额外判断   
 > 避免踩坑03： 不支持对没有标注的句子或文件的测试（已经支持），而且每次测试都需要重新构建词典  
 > 避免踩坑04： **没有用到词向量（to-do)**  
-> 避免踩坑05： 训练在GPU(or CPU)上得到的模型，无法在CPU(or GPU)的机器上使用。
+> 避免踩坑05： 训练在GPU(or CPU)上得到的模型，无法在CPU(or GPU)的机器上使用  
 
+**安装依赖**：`pip3 install -r requirement.txt`  
 文件框架和说明(todo)
 
 ### 训练
@@ -114,8 +115,21 @@ O		O
 2，查看数据集中的测试数据的效果： `python3 test.py [dataset_dir]`  
 比如：`python3 test.py ./data/eng_ner_coll2003/`  
 
+### 比较：与参考repo的结果对比
+采用与参考repo相同的配置和数据集，在CPU上训练。结果如下。  
+
+||参考repo|本repo|
+|-|-|-|
+|precision|95.74%|96.06%|
+|recall|95.72%|96.04%|
+|F1|95.70%|96.03%|
+
+- 数据集：`./data/testraw/`，data size足够
+- model：`./result/bilstm_crf_ref_repo.pkl`
+- 分析：结果相当，本repo的结果比参考repo的效果略好
+
 ### result
-代码已经跑通（训练+测试+评估），但在两个数据集上的效果还不理想（现有结果没有学习到句法约束）。
+代码已经跑通（训练+测试+评估），但在两个数据集上的效果还不理想（现有结果没有学习到句法约束，badcase如下所示）。
 ```
 新	B-PER
 华	B-PER
@@ -134,9 +148,9 @@ O		O
 1，优化 ner_pytorch/
 - 确认代码，尤其是CRF模块
 - 修改config.py配置文件
-- 确认数据
+- 确认数据，**很有可能是数据太少**
 - 训练、评估
 - 加入词向量（★★★）  
 
-2，Baseline：tutorial_pytorch_bilstm_crf/，当前数据集在baseline上的训练和评估测试
+2，Baseline：tutorial_pytorch_bilstm_crf/，baseline在当前数据集（中文、英文、参考repo数据集）上的训练和评估，比较并分析结果
 
