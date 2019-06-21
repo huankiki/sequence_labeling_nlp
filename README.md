@@ -60,7 +60,8 @@
 代码参考：[Github-luopeixiang/named_entity_recognition](https://github.com/luopeixiang/named_entity_recognition)
 
 ### data
-中文、英文两个数据集，标注方式：BIESO
+中文、英文两个数据集，标注格式：BIESO。  
+【要求】数据集的命名格式为：`train.txt  test.txt  val.txt`
 - 中文数据集，参考：[LatticeLSTM/data](https://github.com/jiesutd/LatticeLSTM/tree/master/data)
 - 英文数据集，参考：[conll2003/ner/eng](https://www.clips.uantwerpen.be/conll2003/ner/)、[conll2003/ner/eng-BIESO](https://github.com/liu-nlper/SLTK/tree/master/data)
 ```
@@ -91,7 +92,47 @@ O		O
 ```
 
 ### code
-代码：[ner_pytorch](./ner_pytorch)  
-文件框架和说明：
+代码：[ner_pytorch](./ner_pytorch)，参考了[Github-luopeixiang/named_entity_recognition](https://github.com/luopeixiang/named_entity_recognition)  
+原代码同时实现和比较了HMM、CRF、BiLSTM和BiLSTM-CRF四个模型。此处暂时只关心BiLSTM-CRF模型。  
+> 避免踩坑01： 数据集的命名格式有明确要求（且句子与句子之间的分割必须为**不含空格**的空行）  
+> 避免踩坑02： 计算Precision时，可能遇到分母为零的情况，需要额外判断   
+> 避免踩坑03： 不支持对没有标注的句子或文件的测试（已经支持），而且每次测试都需要重新构建词典  
+> 避免踩坑04： **没有用到词向量（to-do)**  
+> 避免踩坑05： 训练在GPU(or CPU)上得到的模型，无法在CPU(or GPU)的机器上使用。
+
+文件框架和说明(todo)
+
+### 训练
+1，修改或确认配置文件(./models/config.py)  
+2，准备好数据集(./data/)  
+3，训练模型：`python3 model.py [dataset_dir]`  
+训练完成后，会自动评估在测试集(test.txt)上的效果。
+
+### 测试
+1，对没有标注的原始测试文件测试： `python3 predict.py dataset_dir raw_test_file`  
+比如：`python3 predict.py ./data/eng_ner_coll2003/  ./result/test.raw`  
+2，查看数据集中的测试数据的效果： `python3 test.py [dataset_dir]`  
+比如：`python3 test.py ./data/eng_ner_coll2003/`  
 
 ### result
+代码已经跑通（训练+测试+评估），但在两个数据集上的效果还不理想（现有结果没有学习到句法约束）。
+```
+新	B-PER
+华	B-PER
+社	B-PER
+北	E-ORG
+京	B-PER
+二	B-PER
+月	B-PER
+十	B-ORG
+二	I-ORG
+日	I-ORG
+电	I-ORG
+```
+
+**[To-Do-20190621]**
+- 确认代码，尤其是CRF模块
+- 修改config.py配置文件
+- 确认数据
+- 训练、评估
+- 加入词向量（★★★）
