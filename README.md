@@ -137,5 +137,6 @@ O		O
 - 确认数据
 - 训练、评估
 - 加入词向量（★★★）  
+
 2，Baseline：tutorial_pytorch_bilstm_crf/，当前数据集在baseline上的训练和评估测试
 
