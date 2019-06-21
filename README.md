@@ -60,13 +60,38 @@
 代码参考：[Github-luopeixiang/named_entity_recognition](https://github.com/luopeixiang/named_entity_recognition)
 
 ### data
-中文、英文两个数据集
+中文、英文两个数据集，标注方式：BIESO
 - 中文数据集，参考：[LatticeLSTM/data](https://github.com/jiesutd/LatticeLSTM/tree/master/data)
-- 英文数据集，参考：[conll2003/ner/eng](https://www.clips.uantwerpen.be/conll2003/ner/)
+- 英文数据集，参考：[conll2003/ner/eng](https://www.clips.uantwerpen.be/conll2003/ner/)、[conll2003/ner/eng-BIESO](https://github.com/liu-nlper/SLTK/tree/master/data)
+```
+PER，person，人物
+ORG，organization，组织
+GPE，geopolitical entity，地理政治实体
+LOC，location，地点
+MISC，miscellaneous，其他
+
+#zh_tags        en_tags
+B-GPE		B-LOC
+B-LOC		B-MISC
+B-ORG		B-ORG
+B-PER		B-PER
+E-GPE		E-LOC
+E-LOC		E-MISC
+E-ORG		E-ORG
+E-PER		E-PER
+I-GPE		I-LOC
+I-LOC		I-MISC
+I-ORG		I-ORG
+I-PER		I-PER
+S-GPE		S-LOC
+S-LOC		S-MISC
+S-ORG		S-ORG
+S-PER		S-PER
+O		O      
+```
 
 ### code
 代码：[ner_pytorch](./ner_pytorch)  
 文件框架和说明：
 
 ### result
-
