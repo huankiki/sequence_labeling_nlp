@@ -61,7 +61,7 @@
 
 ### data
 中文、英文两个数据集，标注格式：BIESO。  
-【要求】数据集的命名格式为：`train.txt  test.txt  val.txt`
+【要求】数据集的命名格式为：`train.txt、 test.txt、 val.txt`
 - 中文数据集，参考：[LatticeLSTM/data](https://github.com/jiesutd/LatticeLSTM/tree/master/data)
 - 英文数据集，参考：[conll2003/ner/eng](https://www.clips.uantwerpen.be/conll2003/ner/)、[conll2003/ner/eng-BIESO](https://github.com/liu-nlper/SLTK/tree/master/data)
 ```
@@ -103,10 +103,10 @@ O		O
 文件框架和说明(todo)
 
 ### 训练
-1，修改或确认配置文件(./models/config.py)  
-2，准备好数据集(./data/)  
+1，修改或确认配置文件 (`./models/config.py`)  
+2，准备好数据集 (`./data/`)  
 3，训练模型：`python3 model.py [dataset_dir]`  
-训练完成后，会自动评估在测试集(test.txt)上的效果。
+训练完成后，会自动评估在测试集 (`test.txt`)上的效果。
 
 ### 测试
 1，对没有标注的原始测试文件测试： `python3 predict.py dataset_dir raw_test_file`  
@@ -130,7 +130,7 @@ O		O
 电	I-ORG
 ```
 
-**[To-Do-20190621]**
+### [To-Do-20190621]
 - 确认代码，尤其是CRF模块
 - 修改config.py配置文件
 - 确认数据
