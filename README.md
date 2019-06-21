@@ -70,7 +70,7 @@ GPE，geopolitical entity，地理政治实体
 LOC，location，地点
 MISC，miscellaneous，其他
 
-#zh_tags        en_tags
+#zh_tags        #en_tags
 B-GPE		B-LOC
 B-LOC		B-MISC
 B-ORG		B-ORG
