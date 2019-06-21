@@ -127,6 +127,7 @@ O		O
 - 数据集：`./data/testraw/`，data size足够
 - model：`./result/bilstm_crf_ref_repo.pkl`
 - 分析：结果相当，本repo的结果比参考repo的效果略好
+- eval result：`./result/eval/test_ref_repo.eval`
 
 ### result
 代码已经跑通（训练+测试+评估），但在两个数据集上的效果还不理想（现有结果没有学习到句法约束，badcase如下所示）。
